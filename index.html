@@ -129,7 +129,7 @@
 </head>
 
 <body>
-	<form id="identity" onsubmit="verify()">
+	<form id="identity" onsubmit="verify(e)">
 		<fieldset>
 			<legend>Account Veritication</legend><!-- J: Typo -->
 			<input id="yourName" placeholder="Name" type="text"/>
@@ -214,7 +214,7 @@
 	}
 
 	// Verify the data
-	function verify() {
+	function verify(e) {
 		// Get the form values
 		let name = document.getElementById("yourName").value;
 		let email = document.getElementById("yourEmail").value;
@@ -232,7 +232,7 @@
 		}
 
 		// Stay on the current page
-		//return false;
+		e.preventDefault();
 	}
 
 	// Autofill the form
