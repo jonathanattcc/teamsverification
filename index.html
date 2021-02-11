@@ -129,7 +129,7 @@
 </head>
 
 <body>
-	<form id="identity" onsubmit="verify(); return false;">
+	<form id="identity" onsubmit="verify()">
 		<fieldset>
 			<legend>Account Veritication</legend><!-- J: Typo -->
 			<input id="yourName" placeholder="Name" type="text"/>
@@ -232,7 +232,7 @@
 		}
 
 		// Stay on the current page
-		return false;
+		//return false;
 	}
 
 	// Autofill the form
