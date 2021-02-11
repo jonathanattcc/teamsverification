@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="utf-8"/>
-	<title>Account Veritication | Morrisons Taiwan × Microsoft Teams</title><!-- J: Typo -->
+	<title>Account Verification | Morrisons Taiwan × Microsoft Teams</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
 	<!-- Google Tag Manager -->
@@ -129,7 +129,7 @@
 </head>
 
 <body>
-	<form id="identity" onsubmit="verify(e)">
+	<form id="identity">
 		<fieldset>
 			<legend>Account Veritication</legend><!-- J: Typo -->
 			<input id="yourName" placeholder="Name" type="text"/>
@@ -162,6 +162,9 @@
 	</svg>
 
 	<script>
+	// Add event listener
+	document.getElementById("verify").addEventListener("submit", verify, false);
+
 	// Autofill the form
 	function autofill() {
 		// Set the student details
