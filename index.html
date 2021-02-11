@@ -162,9 +162,6 @@
 	</svg>
 
 	<script>
-	// Add event listener
-	document.getElementById("verify").addEventListener("submit", verify, false);
-
 	// Autofill the form
 	function autofill() {
 		// Set the student details
@@ -235,7 +232,7 @@
 		}
 
 		// Stay on the current page
-		//e.preventDefault();
+		e.preventDefault();
 		return false;
 	}
 
