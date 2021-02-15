@@ -225,23 +225,17 @@
 		} else {
 			// Submit the form
 			const XHR = new XMLHttpRequest();
-			const FD = new FormData(document.getElementById("identity"));
-			console.log(FD);
-
-			// Success
-			XHR.addEventListener("load", function(ev) {
-				alert("Thank you for verifying your account!");
-			});
-
-			// Failure
-			XHR.addEventListener("error", function(ev) {
-				alert("Oops! Something went wrong.");
-			});
-
+			const FD = new FormData();
+			FD.append("name", name);
+			FD.append("email", email);
+			FD.append("birthday", birthday);
+			
 			// Request
-			XHR.open("GET", "https://jonty.me.uk/formmail.php");
+			XHR.open("POST", "https://jonty.me.uk/formmail.php");
 			XHR.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 			XHR.send(FD);
+
+			alert("Thank you for verifying your account!");
 		}
 
 		// Stay on the current page
