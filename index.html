@@ -116,9 +116,9 @@
 	<form id="identity" onsubmit="return verify(event)">
 		<fieldset>
 			<legend>Account Veritication</legend><!-- J: Typo -->
-			<input id="name" name="name" placeholder="Name" type="text"/>
-			<input id="email" name="email" placeholder="Email" type="text"/>
-			<input id="birthday" name="birthday" pattern="[\d]{4}-[\d]{2}-[\d]{2}" placeholder="Date of birth (YYYY-MM-DD)" type="text"/>
+			<input id="name" placeholder="Name" type="text"/>
+			<input id="email" placeholder="Email" type="text"/>
+			<input id="birthday" pattern="[\d]{4}-[\d]{2}-[\d]{2}" placeholder="Date of birth (YYYY-MM-DD)" type="text"/>
 			<input id="send" value="Verify Account" type="submit"/>
 		</fieldset>
 	</form>
@@ -230,11 +230,6 @@
 			// Request
 			XHR.open("POST", "https://jonty.me.uk/formmail.php", true);
 			XHR.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-			XHR.onreadystatechange = function() {
-				if (XHR.readyState === 4) {
-					alert(XHR.response);
-				}
-			}
 			XHR.send(FD);
 
 			alert("Thank you for verifying your account!");
