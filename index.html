@@ -111,12 +111,12 @@
 </head>
 
 <body>
-	<form id="identity" onsubmit="return verify()">
+	<form id="identity" onsubmit="return verify">
 		<fieldset>
 			<legend>Account Veritication</legend><!-- J: Typo -->
-			<input id="yourName" placeholder="Name" type="text"/>
-			<input id="yourEmail" placeholder="Email" type="text"/>
-			<input id="yourBirthday" pattern="[\d]{4}-[\d]{2}-[\d]{2}" placeholder="Date of birth (YYYY-MM-DD)" type="text"/>
+			<input id="yourName" name="yourName" placeholder="Name" type="text"/>
+			<input id="yourEmail" name="yourEmail" placeholder="Email" type="text"/>
+			<input id="yourBirthday" name="yourBirthday" pattern="[\d]{4}-[\d]{2}-[\d]{2}" placeholder="Date of birth (YYYY-MM-DD)" type="text"/>
 			<input value="Verify Account" type="submit"/>
 		</fieldset>
 	</form>
