@@ -228,17 +228,21 @@
 		// Process the input
 		if (!name) {
 			alert("Please enter your name");
+			return false;
 		} else if (!email) {
 			alert("Please enter your email address");
+			return false;
 		} else if (!birthday) {
 			alert("Please enter your date of birthday");
+			return false;
 		} else {
 			alert("Thank you for verifying your account!");
+			return true;
 		}
 
 		// Stay on the current page
 		//e.preventDefault();
-		return false;
+		//return false;
 	}
 
 	// Autofill the form
