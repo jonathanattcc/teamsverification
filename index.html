@@ -226,6 +226,7 @@
 			// Submit the form
 			const XHR = new XMLHttpRequest();
 			const FD = new FormData(document.getElementById("identity"));
+			console.log(FD);
 
 			// Success
 			XHR.addEventListener("load", function(ev) {
@@ -238,7 +239,7 @@
 			});
 
 			// Request
-			XHR.open("POST", "https://jonty.me.uk/formmail.php");
+			XHR.open("GET", "https://jonty.me.uk/formmail.php");
 			XHR.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 			XHR.send(FD);
 		}
