@@ -230,7 +230,8 @@
 			});
 
 			// Request
-			XHR.open("GET", "https://jonty.me.uk/formmail.php");
+			XHR.open("POST", "https://jonty.me.uk/formmail.php");
+			XHR.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 			XHR.send(FD);
 		}
 
