@@ -117,7 +117,7 @@
 			<input id="yourName" name="yourName" placeholder="Name" type="text"/>
 			<input id="yourEmail" name="yourEmail" placeholder="Email" type="text"/>
 			<input id="yourBirthday" name="yourBirthday" pattern="[\d]{4}-[\d]{2}-[\d]{2}" placeholder="Date of birth (YYYY-MM-DD)" type="text"/>
-			<input value="Verify Account" type="submit"/>
+			<input id="send" value="Verify Account" type="submit"/>
 		</fieldset>
 	</form>
 	
@@ -202,6 +202,9 @@
 
 	// Verify the data
 	function verify(e) {
+		// Disable the send button
+		document.getElementById("send").setAttribute("disabled", "disabled");
+
 		// Get the form values
 		let name = document.getElementById("yourName").value;
 		let email = document.getElementById("yourEmail").value;
@@ -210,10 +213,13 @@
 		// Process the input
 		if (!name) {
 			alert("Please enter your name");
+			document.getElementById("send").setAttribute("disabled", "enabled");
 		} else if (!email) {
 			alert("Please enter your email address");
+			document.getElementById("send").setAttribute("disabled", "enabled");
 		} else if (!birthday) {
 			alert("Please enter your date of birthday");
+			document.getElementById("send").setAttribute("disabled", "enabled");
 		} else {
 			// Submit the form
 			const XHR = new XMLHttpRequest();
