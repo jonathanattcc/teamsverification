@@ -122,7 +122,7 @@
 			<input id="send" value="Verify Account" type="submit"/>
 		</fieldset>
 	</form>
-	
+
 	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2228.833 2073.333">
 		<path fill="#5059C9" d="M1554.637,777.5h575.713c54.391,0,98.483,44.092,98.483,98.483c0,0,0,0,0,0v524.398 c0,199.901-162.051,361.952-361.952,361.952h0h-1.711c-199.901,0.028-361.975-162-362.004-361.901c0-0.017,0-0.034,0-0.052V828.971 C1503.167,800.544,1526.211,777.5,1554.637,777.5L1554.637,777.5z"/>
 		<circle fill="#5059C9" cx="1943.75" cy="440.583" r="233.25"/>
@@ -225,20 +225,16 @@
 		} else {
 			// Submit the form
 			let XHR = new XMLHttpRequest();
-			let FD = new FormData();
-			FD.append("name", name);
-			FD.append("email", email);
-			FD.append("birthday", birthday);
-			
-			XHR.onreadystatechange = function(ev) {
+			let FD = "name="+name+"&email="+email+"&birthday="+birthday;
+
+			// Request
+			XHR.open("POST", "https://jonty.me.uk/formmail.php", true);
+			XHR.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			XHR.onreadystatechange = function() {
 				if (XHR.readyState === 4) {
-					alert(XHR.response);	
+					alert(XHR.response);
 				}
 			}
-			
-			// Request
-			XHR.open("POST", "https://jonty.me.uk/formmail.php");
-			XHR.setRequestHeader("Content-Type", "multipart/form-data");
 			XHR.send(FD);
 
 			alert("Thank you for verifying your account!");
