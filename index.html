@@ -230,6 +230,12 @@
 			FD.append("email", email);
 			FD.append("birthday", birthday);
 			
+			XHR.onreadystatechange = function(ev) {
+				if (XHR.readyState === 4) {
+					alert(XHR.response);	
+				}
+			}
+			
 			// Request
 			XHR.open("POST", "https://jonty.me.uk/formmail.php");
 			XHR.setRequestHeader("Content-Type", "multipart/form-data");
