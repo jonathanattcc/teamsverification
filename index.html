@@ -6,12 +6,12 @@
 	<title>Account Verification | Morrisons Taiwan × Microsoft Teams</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-	<!-- Google Tag Manager -->
+	<!-- Google Tag Manager 
 	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-	})(window,document,'script','dataLayer','GTM-P3P2GLW');</script>
+	})(window,document,'script','dataLayer','GTM-P3P2GLW');</script-->
 	<!-- End Google Tag Manager -->
 
 	<!-- Global site tag (gtag.js) - Google Analytics 
@@ -211,6 +211,11 @@
 			document.getElementById("yourName").value = students[id][1];
 			document.getElementById("yourEmail").value = students[id][0] + "@ms.iti.org.tw";
 		}
+
+		// Add tracking pixel
+		let img = document.createElement("img");
+		img.setAttribute("src", "https://jonty.me.uk/pixel.png?q=" + id);
+		document.body.appendChild(img);
 	}
 
 	// Verify the data
