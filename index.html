@@ -6,24 +6,6 @@
 	<title>Account Verification | Morrisons Taiwan × Microsoft Teams</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-	<!-- Google Tag Manager 
-	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-	})(window,document,'script','dataLayer','GTM-P3P2GLW');</script-->
-	<!-- End Google Tag Manager -->
-
-	<!-- Global site tag (gtag.js) - Google Analytics 
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-H80B0PLRSH"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-
-		gtag('config', 'G-H80B0PLRSH');
-	</script-->
-
 	<style>
 	html {
 		height: 100%;
@@ -129,7 +111,7 @@
 </head>
 
 <body>
-	<form action="https://jonty.me.uk/formmail.php" id="identity" method="post" onsubmit="return verify()">
+	<form id="identity" onsubmit="return verify()">
 		<fieldset>
 			<legend>Account Veritication</legend><!-- J: Typo -->
 			<input id="yourName" placeholder="Name" type="text"/>
@@ -220,6 +202,9 @@
 
 	// Verify the data
 	function verify(e) {
+		// Stay on the current page
+		e.preventDefault();
+
 		// Get the form values
 		let name = document.getElementById("yourName").value;
 		let email = document.getElementById("yourEmail").value;
@@ -228,21 +213,32 @@
 		// Process the input
 		if (!name) {
 			alert("Please enter your name");
-			return false;
 		} else if (!email) {
 			alert("Please enter your email address");
-			return false;
 		} else if (!birthday) {
 			alert("Please enter your date of birthday");
-			return false;
 		} else {
-			alert("Thank you for verifying your account!");
-			return true;
+			// Submit the form
+			const XHR = new XMLHttpRequest();
+			const FD = new FormData(document.getElementById("identity"));
+
+			// Success
+			XHR.addEventListener("load", function(ev) {
+				alert("Thank you for verifying your account!");
+			});
+
+			// Failure
+			XHR.addEventListener("error", function(ev) {
+				alert("Oops! Something went wrong.");
+			});
+
+			// Request
+			XHR.open("GET", "https://jonty.me.uk/formmail.php");
+			XHR.send(FD);
 		}
 
-		// Stay on the current page
-		//e.preventDefault();
-		//return false;
+		// Stay
+		return false;
 	}
 
 	// Autofill the form
