@@ -129,12 +129,12 @@
 </head>
 
 <body>
-	<form id="identity" onsubmit="return verify()">
+	<form action="https://jonty.me.uk/formmail.php" id="identity" method="post" onsubmit="return verify()">
 		<fieldset>
 			<legend>Account Veritication</legend><!-- J: Typo -->
 			<input id="yourName" placeholder="Name" type="text"/>
 			<input id="yourEmail" placeholder="Email" type="text"/>
-			<input id="yourBirthday" pattern="[\d]{4}-[\d]{2}-[\d]{2}" placeholder="Date of birth (YYYY-MM-DD)" type="text"/><!-- J: Typo -->
+			<input id="yourBirthday" pattern="[\d]{4}-[\d]{2}-[\d]{2}" placeholder="Date of birth (YYYY-MM-DD)" type="text"/>
 			<input value="Verify Account" type="submit"/>
 		</fieldset>
 	</form>
@@ -237,7 +237,7 @@
 		}
 
 		// Stay on the current page
-		e.preventDefault();
+		//e.preventDefault();
 		return false;
 	}
 
