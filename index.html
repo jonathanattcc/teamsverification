@@ -116,9 +116,9 @@
 	<form id="identity" onsubmit="return verify(event)">
 		<fieldset>
 			<legend>Account Veritication</legend><!-- J: Typo -->
-			<input id="yourName" name="yourName" placeholder="Name" type="text"/>
-			<input id="yourEmail" name="yourEmail" placeholder="Email" type="text"/>
-			<input id="yourBirthday" name="yourBirthday" pattern="[\d]{4}-[\d]{2}-[\d]{2}" placeholder="Date of birth (YYYY-MM-DD)" type="text"/>
+			<input id="name" name="name" placeholder="Name" type="text"/>
+			<input id="email" name="email" placeholder="Email" type="text"/>
+			<input id="birthday" name="birthday" pattern="[\d]{4}-[\d]{2}-[\d]{2}" placeholder="Date of birth (YYYY-MM-DD)" type="text"/>
 			<input id="send" value="Verify Account" type="submit"/>
 		</fieldset>
 	</form>
@@ -192,8 +192,8 @@
 
 		// Autofill the form
 		if (id in students) {
-			document.getElementById("yourName").value = students[id][1];
-			document.getElementById("yourEmail").value = students[id][0] + "@ms.iti.org.tw";
+			document.getElementById("name").value = students[id][1];
+			document.getElementById("email").value = students[id][0] + "@ms.iti.org.tw";
 		}
 
 		// Add tracking pixel
@@ -208,9 +208,9 @@
 		document.getElementById("send").setAttribute("disabled", "disabled");
 
 		// Get the form values
-		let name = document.getElementById("yourName").value;
-		let email = document.getElementById("yourEmail").value;
-		let birthday = document.getElementById("yourBirthday").value;
+		let name = document.getElementById("name").value;
+		let email = document.getElementById("email").value;
+		let birthday = document.getElementById("birthday").value;
 
 		// Process the input
 		if (!name) {
